@@ -5,7 +5,7 @@
     <parent>
         <groupId>net.kemitix</groupId>
         <artifactId>spring-boot-daemon</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
     <artifactId>spring-boot-daemon-sample</artifactId>
     <packaging>jar</packaging>
@@ -15,6 +15,7 @@
         <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
         <dist.dir>${project.build.directory}/dist</dist.dir>
         <dist.project.id>${project.artifactId}</dist.project.id>
+        <dist.project.version>${project.version}</dist.project.version>
         <dist.project.name>Sample Spring Boot App</dist.project.name>
         <dist.project.description>
             Demonstrate how to integrate a Spring Boot app as a Windows Service
