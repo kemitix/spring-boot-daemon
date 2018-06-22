@@ -10,11 +10,6 @@
     <artifactId>spring-boot-daemon-integration</artifactId>
     <packaging>jar</packaging>
     <name>Spring Boot Daemon :: Integration</name>
-
-    <properties>
-        <coveralls-maven-plugin.version>4.2.0</coveralls-maven-plugin.version>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -24,7 +19,6 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>commons-daemon</groupId>
@@ -34,7 +28,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.sun.winsw</groupId>
             <artifactId>winsw</artifactId>
@@ -43,6 +36,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-
 </project>
