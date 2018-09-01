@@ -12,7 +12,7 @@
     <name>Spring Boot Daemon :: Integration</name>
 
     <properties>
-        <coveralls-maven-plugin.version>4.2.0</coveralls-maven-plugin.version>
+        <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
     </properties>
 
     <build>
