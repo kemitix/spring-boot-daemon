@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package net.nicoll.boot.daemon;
 
 import java.io.IOException;
@@ -41,7 +40,7 @@ class SpringBootService {
                 SpringBootService.class.getClassLoader());
         System.out.println(
                 "Starting Spring Boot application [" + springBootApp.getName()
-                        + "]");
+                + "]");
         SpringApplication.run(springBootApp);
     }
 
@@ -58,8 +57,8 @@ class SpringBootService {
             } catch (InstanceNotFoundException ex) {
                 throw new IllegalStateException(
                         "Spring application lifecycle JMX bean not "
-                                + "found, could not stop application "
-                                + "gracefully", ex);
+                        + "found, could not stop application "
+                        + "gracefully", ex);
             }
         }
     }
