@@ -17,7 +17,7 @@
         <winsw.version>1.18</winsw.version>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
         <maven-resources-plugin.verion>3.0.1</maven-resources-plugin.verion>
-        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
         <dist.dir>${project.build.directory}/dist</dist.dir>
         <dist.service.name>${project.artifactId}</dist.service.name>
         <dist.service.display.name>Sample Spring Boot App</dist.service.display.name>
