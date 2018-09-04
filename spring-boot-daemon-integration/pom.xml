@@ -13,9 +13,16 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>${coveralls-maven-plugin.version}</version>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>${tiles-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <tile>net.kemitix.tiles:all:${kemitix-tiles.version}</tile>
+                        <tile>net.kemitix.checkstyle:tile:${kemitix-checkstyle.version}</tile>
+                    </tiles>
+                </configuration>
             </plugin>
         </plugins>
     </build>
