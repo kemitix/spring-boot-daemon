@@ -1,5 +1,5 @@
-.idea
+*.jqwik-database*
 *.iml
-*.ipr
-*.iws
-target
+.idea/
+target/
+pom.xml.*

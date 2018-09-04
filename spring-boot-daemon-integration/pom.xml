@@ -5,12 +5,27 @@
     <parent>
         <groupId>net.kemitix</groupId>
         <artifactId>spring-boot-daemon</artifactId>
-        <version>1.1.0</version>
+        <version>DEV-SNAPSHOT</version>
     </parent>
     <artifactId>spring-boot-daemon-integration</artifactId>
     <packaging>jar</packaging>
     <name>Spring Boot Daemon :: Integration</name>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>${tiles-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <tile>net.kemitix.tiles:all:${kemitix-tiles.version}</tile>
+                        <tile>net.kemitix.checkstyle:tile:${kemitix-checkstyle.version}</tile>
+                    </tiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>commons-daemon</groupId>
@@ -20,7 +35,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.sun.winsw</groupId>
             <artifactId>winsw</artifactId>
@@ -29,6 +43,4 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
-
 </project>

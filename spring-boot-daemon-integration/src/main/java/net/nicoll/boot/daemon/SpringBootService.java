@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package net.nicoll.boot.daemon;
 
 import java.io.IOException;
@@ -32,7 +31,13 @@ import org.springframework.util.ClassUtils;
  */
 class SpringBootService {
 
-    void start(final String[] args) throws Exception {
+    /**
+     * Start the service.
+     *
+     * @param args Command line arguments as an array, where the first item is the fully qualified Spring Boot
+     *             application class
+     */
+    void start(final String[] args) {
         if (args.length == 0) {
             throw new IllegalStateException(
                     "Spring Boot application class must be provided.");
@@ -41,10 +46,17 @@ class SpringBootService {
                 SpringBootService.class.getClassLoader());
         System.out.println(
                 "Starting Spring Boot application [" + springBootApp.getName()
-                        + "]");
+                + "]");
         SpringApplication.run(springBootApp);
     }
 
+    /**
+     * Stop the service.
+     *
+     * @param args Command line arguments as an array, where the first item is the JMX port to use to connect to the
+     *             running service
+     * @throws IOException if the port can't be opened or the service can't be connected with
+     */
     void stop(final String[] args) throws IOException {
         System.out.println("Stopping Spring Boot application...");
         int jmxPort = Integer.parseInt(args[0]);
@@ -53,14 +65,12 @@ class SpringBootService {
                 jmxPort)) {
             MBeanServerConnection connection
                     = connector.getMBeanServerConnection();
-            try {
-                new SpringApplicationAdminClient(connection, jmxName).stop();
-            } catch (InstanceNotFoundException ex) {
-                throw new IllegalStateException(
-                        "Spring application lifecycle JMX bean not "
-                                + "found, could not stop application "
-                                + "gracefully", ex);
-            }
+            new SpringApplicationAdminClient(connection, jmxName).stop();
+        } catch (InstanceNotFoundException ex) {
+            throw new IllegalStateException(
+                    "Spring application lifecycle JMX bean not "
+                    + "found, could not stop application "
+                    + "gracefully", ex);
         }
     }
 

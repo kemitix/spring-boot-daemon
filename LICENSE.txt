@@ -13,10 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Spring Boot Daemon.
- *
- * @author pcampbell
- */
-package net.nicoll.boot.daemon;

@@ -5,19 +5,13 @@
     <parent>
         <groupId>net.kemitix</groupId>
         <artifactId>spring-boot-daemon</artifactId>
-        <version>1.1.0</version>
+        <version>DEV-SNAPSHOT</version>
     </parent>
     <artifactId>spring-boot-daemon-sample</artifactId>
     <packaging>jar</packaging>
     <name>Spring Boot Daemon :: Sample</name>
-
     <properties>
-        <spring-boot.version>1.3.3.RELEASE</spring-boot.version>
         <start-class>net.nicoll.SampleApplication</start-class>
-        <winsw.version>1.18</winsw.version>
-        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
-        <maven-resources-plugin.verion>2.7</maven-resources-plugin.verion>
-        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <dist.dir>${project.build.directory}/dist</dist.dir>
         <dist.service.name>${project.artifactId}</dist.service.name>
         <dist.service.display.name>Sample Spring Boot App</dist.service.display.name>
@@ -28,13 +22,11 @@
         <dist.start.class>${start-class}</dist.start.class>
         <dist.jmx.port>50201</dist.jmx.port>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>net.kemitix</groupId>
             <artifactId>spring-boot-daemon-integration</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -44,11 +36,19 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
-
-
     <build>
         <plugins>
-
+            <plugin>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>${tiles-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <tiles>
+                        <tile>net.kemitix.tiles:all:${kemitix-tiles.version}</tile>
+                    </tiles>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -65,11 +65,9 @@
                     <layout>ZIP</layout>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>${maven-dependency-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>copy</id>
@@ -95,7 +93,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resources-plugin.verion}</version>
+                <version>${maven-resources-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>copy-resources</id>
@@ -115,11 +113,9 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>${maven-assembly-plugin.version}</version>
                 <configuration>
                     <descriptors>
                         <descriptor>src/main/assembly/windows.xml</descriptor>
@@ -135,9 +131,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-
-
 </project>
