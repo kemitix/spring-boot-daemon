@@ -38,7 +38,8 @@ class SpringBootDaemon implements Daemon {
 
     private ConfigurableApplicationContext content;
 
-    public void init(final DaemonContext context) throws Exception {
+    @Override
+    public void init(final DaemonContext context) {
         System.out.println(
                 String.format("Daemon initialized with arguments [%s]",
                         Arrays.toString(context.getArguments())));
@@ -47,20 +48,23 @@ class SpringBootDaemon implements Daemon {
                 SpringBootDaemon.class.getClassLoader());
     }
 
-    public void start() throws Exception {
+    @Override
+    public void start() {
         System.out.println(
                 String.format("Starting Spring Boot application [%s]",
                         this.springBootApp.getName()));
         this.content = SpringApplication.run(springBootApp);
     }
 
-    public void stop() throws Exception {
+    @Override
+    public void stop() {
         System.out.println(
                 String.format("Stopping Spring Boot application [%s]",
                         this.springBootApp.getName()));
         this.content.close();
     }
 
+    @Override
     public void destroy() {
 
     }

@@ -31,6 +31,7 @@ public class StopSpringBootService {
      *
      * @throws Exception if there is an error starting the server
      */
+    @SuppressWarnings("uncommentedmain")
     public static void main(final String[] args) throws Exception {
         new SpringBootService().stop(args);
     }

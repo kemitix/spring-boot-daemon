@@ -47,6 +47,12 @@ class SpringApplicationAdminClient {
 
     private final ObjectName objectName;
 
+    /**
+     * Create a new instance of the class.
+     *
+     * @param connection the connection to the MBean Server for the running service
+     * @param jmxName    the object name
+     */
     SpringApplicationAdminClient(
             final MBeanServerConnection connection, final String jmxName) {
         this.connection = connection;
@@ -59,10 +65,8 @@ class SpringApplicationAdminClient {
      * should be repeatedly called until a timeout is reached.
      *
      * @return {@code true} if the application is ready to service requests
-     *
-     * @throws org.springframework.jmx.JmxException if the JMX service could not
-     *                                              be contacted
      */
+    @SuppressWarnings("npathcomplexity")
     public boolean isReady() {
         try {
             return (Boolean) this.connection.getAttribute(this.objectName,
@@ -83,8 +87,6 @@ class SpringApplicationAdminClient {
     /**
      * Stop the application managed by this instance.
      *
-     * @throws JmxException              if the JMX service could not be
-     *                                   contacted
      * @throws IOException               if an I/O error occurs
      * @throws InstanceNotFoundException if the lifecycle mbean cannot be found
      */
