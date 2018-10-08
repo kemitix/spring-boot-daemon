@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+NEXT
+-----
+
+* Bump kemitix-parent to 5.2.0 (#18)
+* Bump maven-resource-plugin to 3.0.1 {#6)
+
 1.1.0
 ------
 
