@@ -40,16 +40,6 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube (published)') {
-            when { expression { isPublished(publicRepo) } }
-            steps {
-                withSonarQubeEnv('sonarqube') {
-                    withMaven(maven: 'maven', jdk: 'JDK 1.8') {
-                        sh "${mvn} org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar"
-                    }
-                }
-            }
-        }
         stage('Deploy (published release branch)') {
             when {
                 expression {
