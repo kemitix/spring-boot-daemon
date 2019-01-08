@@ -1,0 +1,30 @@
+* CHANGELOG
+
+  All notable changes to this project will be documented in this file.
+
+  The format is based on [[https://keepachangelog.com/en/1.0.0/][Keep a Changelog]], and this project adheres to
+  [[https://semver.org/spec/v2.0.0.html][Semantic Versioning]].
+
+* 1.1.1
+
+** Dependencies
+
+  - Replace kemitix-spring-parent with kemitix-parent 5.2.0
+  - Use kemitix-maven-tiles 1.1.0
+  - Use kemitix-checkstyle-ruleset 5.0.0
+  - Bump maven-resource-plugin from 2.7 to 3.0.1 {#6)
+  - Bump spring-boot from 1.3.3 to 2.1.0
+
+* 1.1.0
+
+  - Distribute the executable fat-jar (smaller zip files)
+  - Include install/uninstall/startup/shutdown helper batch commands
+  - Fix sample application to be executable
+
+* 1.0.1
+
+  - Fix missing dist.project.version property in sample and README
+
+* 1.0.0
+
+  - Initial Release
