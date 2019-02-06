@@ -13,7 +13,7 @@
   - Use kemitix-maven-tiles 1.1.0
   - Use kemitix-checkstyle-ruleset 5.0.0
   - Bump maven-resource-plugin from 2.7 to 3.0.1 {#6)
-  - Bump spring-boot from 1.3.3 to 2.1.0
+  - Bump spring-boot from 1.3.3.RELEASE to 2.1.2.RELEASE
 
 * 1.1.0
 
