@@ -19,7 +19,7 @@
         <kemitix-tiles.version>1.1.0</kemitix-tiles.version>
         <kemitix-checkstyle.version>5.0.0</kemitix-checkstyle.version>
 
-        <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
+        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
         <commons-daemon.version>1.1.0</commons-daemon.version>
         <winsw.version>2.1.2</winsw.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
