@@ -20,7 +20,7 @@
         <kemitix-checkstyle.version>5.0.0</kemitix-checkstyle.version>
 
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
-        <commons-daemon.version>1.2.0</commons-daemon.version>
+        <commons-daemon.version>1.2.1</commons-daemon.version>
         <winsw.version>2.1.2</winsw.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     </properties>
