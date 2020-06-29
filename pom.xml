@@ -21,7 +21,7 @@
 
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <commons-daemon.version>1.2.2</commons-daemon.version>
-        <winsw.version>2.1.2</winsw.version>
+        <winsw.version>2.9.0</winsw.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
     </properties>
     <modules>
