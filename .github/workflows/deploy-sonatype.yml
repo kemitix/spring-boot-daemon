@@ -1,0 +1,40 @@
+name: sonatype-deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kamiazya/setup-graphviz@v1
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Build with Maven
+        run: mvn -B install
+      - name: Nexus Repo Publish
+        run: |
+          gpg --quiet \
+            --batch \
+            --yes \
+            --decrypt \
+            --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
+            --output codesigning.asc \
+            .github/codesigning.asc.gpg
+          gpg --batch \
+            --fast-import codesigning.asc
+          mvn --settings .github/settings.xml \
+            -Dskip-Tests=true \
+            -P release \
+            -B \
+            deploy
+        env:
+          NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
+          NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
+          GPG_KEYNAME: ${{ secrets.GPG_KEYNAME }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
