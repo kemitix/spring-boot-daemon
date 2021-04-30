@@ -1,0 +1,14 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: net.kemitix:kemitix-spring-parent
+    versions:
+    - "> 1.15.0"
+  - dependency-name: org.eluder.coveralls:coveralls-maven-plugin
+    versions:
+    - "> 4.2.0"
